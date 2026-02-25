@@ -19,6 +19,23 @@ implementations — designed for learning as much as for cutting-edge research.
 
 ## Quick start
 
+### Jupyter notebooks (recommended)
+
+```bash
+pip install -r requirements.txt
+pip install jupyter
+
+jupyter notebook notebooks/
+```
+
+| Notebook | Experiment | Contents |
+|---|---|---|
+| `01_attention_sinks.ipynb` | Attention Sinks | Theory → train → measure → streaming cache demo |
+| `02_grokking.ipynb` | Grokking | Dataset exploration → train → grokking curves → Fourier analysis |
+| `03_icl_gradient_descent.ipynb` | ICL as GD | Math derivation → theoretical 13-param model → meta-train → comparison |
+
+### Python scripts (fast, no Jupyter needed)
+
 ```bash
 pip install -r requirements.txt
 
@@ -36,6 +53,12 @@ python examples/run_icl_gd.py
 ```
 
 Plots are saved to `./outputs/`.
+
+### Regenerate notebooks
+
+```bash
+python scripts/generate_notebooks.py
+```
 
 ---
 
@@ -230,10 +253,18 @@ mineo/
 └── visualization/
     └── plots.py             # attention heatmaps, grokking curves, …
 
-examples/
+notebooks/                   # interactive educational notebooks
+├── 01_attention_sinks.ipynb
+├── 02_grokking.ipynb
+└── 03_icl_gradient_descent.ipynb
+
+examples/                    # standalone scripts
 ├── run_attention_sinks.py
 ├── run_grokking.py
 └── run_icl_gd.py
+
+scripts/
+└── generate_notebooks.py    # regenerates notebooks from Python source
 ```
 
 The core transformer (`mineo/model/transformer.py`) is intentionally minimal
