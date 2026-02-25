@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "mineo"
+version = "0.1.0"
+description = "Educational LLM research: reproduce attention sinks, grokking, and in-context learning"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "jupyter", "ipykernel", "scipy"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mineo*"]
